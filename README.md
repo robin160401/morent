@@ -28,7 +28,7 @@ The "Morent" project is deployed using Netlify, making it easily accessible to e
 
 ### Demo
 The live version of our Website  can be accessed here: 
-[Our Website](https://project-morent-car-rental.netlify.app/)
+[Our Website](https://morent-car-rental-seven.vercel.app/)
 
 ## Features
 We used React and Node.js to build a robust and scalable application.
