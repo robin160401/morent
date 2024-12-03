@@ -7,7 +7,7 @@ export default function Layout() {
   const { theme } = useThemeContext();
 
   return (
-    <div className={`theme--${theme}-hf h-screen flex flex-col`}>
+    <div className={`theme--${theme}-hf h-screen flex flex-col overflow-x-hidden`}>
       <div>
         <Header />
       </div>
