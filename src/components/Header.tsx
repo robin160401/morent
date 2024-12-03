@@ -14,7 +14,6 @@ import { useSearch } from "@/context/searchContext";
 import { supabase } from "@/lib/supabase";
 import { useUserContext } from "@/context/userContext";
 import { useThemeContext } from "@/context/LightDarkModeContext";
-//${getStorageURL(name?.image_url)} ||   (img profile bild , läuft leider nicht)
 
 export default function Header() {
 
@@ -26,7 +25,6 @@ export default function Header() {
     supabase.auth.signOut();
   };
   const { setSearchFor } = useSearch();
-  // const { searchFor } = useSearch();
   return (
     <header
       className={` mx-10 flex justify-between gap-10 items-center mb-10 p-5 pt-10 theme--${theme}-hf`}
@@ -52,8 +50,7 @@ export default function Header() {
 
         <Button variant={"outline"} className="rounded-full h-auto ">
           <img
-            src="../../public/img/icons/glocke-grau-notification.svg"
-            alt="profil img"
+            src="/img/icons/glocke-grau-notification.svg"
           />
         </Button>
         <Button variant={"outline"} className="rounded-full h-14 mx-2">
