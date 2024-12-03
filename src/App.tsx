@@ -33,7 +33,7 @@ function App() {
                       path="/favorites/:user_id"
                       element={<FavoritesPage />}
                     />
-                    <Route path="/profile/:id" element={<ProfilePage />} />
+                    <Route path="/profile" element={<ProfilePage />} />
                     <Route path="/rent/:id" element={<RentPage />} />
 
                     <Route path="/login" element={<LoginPage />} />

@@ -18,7 +18,6 @@ export default function ProfilePage() {
   const { user } = useUserContext();
   const [profile, setProfile] = useState<Profile>();
 
-
   useEffect(() => {
     const fetchProfile = async () => {
       if (user) {
@@ -41,6 +40,18 @@ export default function ProfilePage() {
       fetchProfile();
     }
   }, [user]);
+
+  if (!user) {
+    return (
+      <div className="w-96 bg-white shadow-sm flex flex-col gap-5 m-auto p-8 rounded-lg items-center mt-20">
+        <h2 className="font-semibold text-2xl text-center mb-7">Please Login</h2>
+        <p className="text-center">You're not logegd in. Please login to view your profile.</p>
+        <Link to="/login">
+          <Button className="bg-[#3563E9] m-2">go to Login Page</Button>
+        </Link>
+      </div>
+    );
+  }
   
   return (
     <div

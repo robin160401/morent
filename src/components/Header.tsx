@@ -81,7 +81,7 @@ export default function Header() {
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Link to={`/profile/${user?.id}`}>
+              <Link to={`/profile`}>
                 <span className="flex gap-2 hover:bg-[#3562e91b] rounded-xl p-1">
                   <img src="/img/icons/zum-profile-icon.svg" alt="to profil" />
                   Profile

@@ -2,6 +2,8 @@ import { supabase } from "@/lib/supabase";
 import { useEffect, useState } from "react";
 import CarCard from "@/components/CarCard";
 import { useUserContext } from "@/context/userContext";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 export default function FavoritesPage() {
   const { user } = useUserContext();
@@ -24,7 +26,18 @@ export default function FavoritesPage() {
     getFavorites();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); 
-  console.log(favoritesData)
+  if (!user) {
+	return (
+	  <div className="w-96 bg-white shadow-sm flex flex-col gap-5 m-auto p-8 rounded-lg items-center mt-20">
+		<h2 className="font-semibold text-2xl text-center mb-7">Please Login</h2>
+		<p className="text-center">You're not looged in. Please Login to view your favourites.</p>
+		<Link to="/login">
+		  <Button className="bg-[#3563E9] m-2">go to Login Page</Button>
+		</Link>
+	  </div>
+	);
+  }
+  
   return (
     <div className="flex justify-center flex-col items-center mb-7 mx-28">
       <h1 className="font-bold text-2xl mb-6 mt-6">Your Favorite Cars</h1>
@@ -37,7 +50,7 @@ export default function FavoritesPage() {
 				onFavoritteClick={getFavorites}
 				/>
 			))
-			) : (<p>You have no fovorite cars</p>)
+			) : (<p>You have no favourite cars</p>)
 		 }
 	  </div>
     </div>
