@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import {Database} from "database.types"
+
 
 const supaBaseURL = import.meta.env.VITE_SUPABASE_URL
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
@@ -10,7 +10,7 @@ if (!supaBaseURL || !supabaseAnonKey) {
     );
   }
 
-export const supabase = createClient<Database>(supaBaseURL, supabaseAnonKey);
+export const supabase = createClient(supaBaseURL, supabaseAnonKey);
 
 export function getStorageURL(path: string | null) {
     if (path === null) return null;

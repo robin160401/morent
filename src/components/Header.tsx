@@ -1,4 +1,4 @@
-import { Link, NavLink, useParams } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Input } from "./ui/input";
 import {
   DropdownMenu,
@@ -14,32 +14,9 @@ import { useSearch } from "@/context/searchContext";
 import { supabase } from "@/lib/supabase";
 import { useUserContext } from "@/context/userContext";
 import { useThemeContext } from "@/context/LightDarkModeContext";
-import { useEffect, useState } from "react";
-import { QueryData } from "@supabase/supabase-js";
 //${getStorageURL(name?.image_url)} ||   (img profile bild , läuft leider nicht)
 
 export default function Header() {
-  const { id } = useParams();
-  const [name, setName] = useState<NameData | null>(null);
-
-  const getName = async (id: string) => {
-    const result = await supabase
-      .from("profiles")
-      .select("*")
-      .eq("id", id)
-      .single();
-    return result;
-  };
-  type NameData = QueryData<ReturnType<typeof getName>>;
-
-  useEffect(
-    () => {
-      if (id) {
-        getName(id).then((result) => setName(result.data));
-      }
-    } /* eslint-disable */,
-    [] /* eslint-enable */
-  );
 
   const { theme } = useThemeContext();
 
